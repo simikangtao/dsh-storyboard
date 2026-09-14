@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Built the dsh-storyboard plugin</title>
+<style>*{box-sizing:border-box}
+body{margin:0;padding:20px;background:#f2f5f8;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;color:#1c2b3a}
+.card{max-width:760px;margin:0 auto;background:#fff;border:1px solid #dde6ee;border-radius:14px;padding:26px 30px;box-shadow:0 2px 10px rgba(28,43,58,.06)}
+h1{margin:0;font-size:24px;line-height:1.3}
+.sub{margin:6px 0 0;font-size:14px;color:#5a6b7d}
+section{margin-top:24px}
+h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#5b7a9f}
+.diagram{overflow-x:auto;padding:6px 2px}
+.diagram svg{min-width:340px}
+ol.flow{list-style:none;margin:0;padding:0;counter-reset:flow}
+ol.flow li{counter-increment:flow;position:relative;padding:0 0 14px 42px}
+ol.flow li::before{content:counter(flow);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;background:#eef4fa;border:1.5px solid #5b7a9f;color:#2c4d70;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+ol.flow li:not(:last-child)::after{content:"";position:absolute;left:13px;top:26px;bottom:2px;width:2px;background:#cfdcea}
+.fl-label{display:block;font-size:15px;font-weight:600}
+.fl-note{display:block;font-size:13px;color:#5a6b7d;margin-top:2px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{border:1px solid #dde6ee;border-radius:10px;padding:10px 12px}
+.f-label{font-size:12px;color:#5a6b7d;margin-bottom:4px}
+.f-value{font-size:14.5px;font-weight:600;word-break:break-word}
+ul.timeline{list-style:none;margin:0;padding:0 0 4px 24px;border-left:2px dotted #b9c9d9}
+ul.timeline li{position:relative;padding:0 0 12px;font-size:14px}
+ul.timeline li::before{content:"";position:absolute;left:-31px;top:3px;width:10px;height:10px;border-radius:50%;background:#5b7a9f;border:2px solid #fff}
+.t-time{display:inline-block;min-width:64px;font-weight:600;color:#2c4d70}
+ol.hiw{margin:0;padding-left:20px;font-size:14.5px;line-height:1.65}
+ol.hiw li{margin-bottom:6px}
+footer{margin-top:26px;padding-top:12px;border-top:1px solid #eef2f6;font-size:12px;color:#8a99a9}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<main class="card">
+<section class="head"><h1>Built the dsh-storyboard plugin</h1><p class="sub">End-of-chat Doubao-style visual summaries for DSH Web, light and offline</p></section>
+<section><h2>How it connects</h2><div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 952 90" width="952" height="90" role="img" aria-label="flow diagram"><defs><marker id="sb-arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#5b7a9f"/></marker></defs><path d="M 132 22 L 196 22" fill="none" stroke="#8aa4c0" stroke-width="1.6" marker-end="url(#sb-arrow)"/><text x="164" y="14" text-anchor="middle" font-size="11.5" fill="#5a6b7d">model calls</text><path d="M 328 22 L 392 22" fill="none" stroke="#8aa4c0" stroke-width="1.6" marker-end="url(#sb-arrow)"/><text x="360" y="14" text-anchor="middle" font-size="11.5" fill="#5a6b7d">renders + writ…</text><path d="M 524 22 L 588 22" fill="none" stroke="#8aa4c0" stroke-width="1.6" marker-end="url(#sb-arrow)"/><text x="556" y="14" text-anchor="middle" font-size="11.5" fill="#5a6b7d">path returned</text><path d="M 720 22 L 784 22" fill="none" stroke="#8aa4c0" stroke-width="1.6" marker-end="url(#sb-arrow)"/><g><rect x="0" y="0" width="132" height="44" rx="10" fill="#eef4fa" stroke="#5b7a9f" stroke-width="1.3"/><text x="66" y="26.5" text-anchor="middle" font-size="12.5" fill="#17324d">Chat ends</text></g><g><rect x="196" y="0" width="132" height="44" rx="10" fill="#eef4fa" stroke="#5b7a9f" stroke-width="1.3"/><text x="262" y="26.5" text-anchor="middle" font-size="12.5" fill="#17324d">storyboard tool</text></g><g><rect x="392" y="0" width="132" height="44" rx="10" fill="#eef4fa" stroke="#5b7a9f" stroke-width="1.3"/><text x="458" y="26.5" text-anchor="middle" font-size="12.5" fill="#17324d">HTML + SVG file</text></g><g><rect x="588" y="0" width="132" height="44" rx="10" fill="#eef4fa" stroke="#5b7a9f" stroke-width="1.3"/><text x="654" y="26.5" text-anchor="middle" font-size="12.5" fill="#17324d">sidebar_open</text></g><g><rect x="784" y="0" width="132" height="44" rx="10" fill="#eef4fa" stroke="#5b7a9f" stroke-width="1.3"/><text x="850" y="26.5" text-anchor="middle" font-size="12.5" fill="#17324d">User sees card</text></g></svg></div></section>
+<section><h2>What was done</h2><ol class="flow"><li><span class="fl-label">Studied the plugin APIs</span><span class="fl-note">commands, tools, systemPrompt, followup verified against ins…</span></li><li><span class="fl-label">Wrote package.json + cordis.patc…</span><span class="fl-note">bundle patch declares the profile row</span></li><li><span class="fl-label">Wrote lib/index.mjs</span><span class="fl-note">zero-dep renderer: SVG DAG, flow, facts, timeline</span></li><li><span class="fl-label">Smoke tested the renderer</span><span class="fl-note">this run</span></li></ol></section>
+<section><h2>Key facts</h2><div class="facts"><div class="fact"><div class="f-label">Dependencies</div><div class="f-value">none (node built-ins only)</div></div><div class="fact"><div class="f-label">Output</div><div class="f-value">single HTML file, ~10-20KB, no network</div></div><div class="fact"><div class="f-label">Storage</div><div class="f-value">$DSH_HOME/storyboard/&lt;session&gt;/</div></div><div class="fact"><div class="f-label">Command</div><div class="f-value">/storyboard [focus]</div></div></div></section>
+<section><h2>Timeline</h2><ul class="timeline"><li><span class="t-time">v0.1</span><span class="t-text">Server-only plugin: tool + command + prompt sectio…</span></li><li><span class="t-time">later</span><span class="t-text">Optional settings toggle and richer diagrams</span></li></ul></section>
+<section><h2>How it works</h2><ol class="hiw"><li>A prompt section instructs the model to close substantive exchanges with one storyboard to…</li><li>The tool normalizes the spec (capped lengths, escaped) and renders one self-contained HTML…</li><li>The file lands under $DSH_HOME/storyboard/&lt;session&gt;/; the model opens it with the host sid…</li></ol></section>
+<footer>Generated by dsh-storyboard &middot; 9/14/2026, 11:56:38 AM</footer>
+</main>
+</body>
+</html>

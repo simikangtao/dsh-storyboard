@@ -1,0 +1,8 @@
+# dsh-storyboard bundle patch: inserts the plugin row into the web profile
+# roster. Server-only plugin (no browser half): the node half (exports ".")
+# runs in the host process and registers the storyboard tool, the
+# /storyboard command, and a compact end-of-chat prompt section.
+- insert:
+    - id: storyboard
+      name: dsh-storyboard
+      config: {}
